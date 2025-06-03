@@ -5,7 +5,10 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,7 +17,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import test.entity.User;
+import test.model.UserDTO;
 import test.model.UserRequest;
+import test.model.UserSearchRequest;
+import test.model.UserSearchResponse;
 import test.repository.UserRepository;
 import test.service.UserService;
 
@@ -69,8 +75,39 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> getAll(Pageable pageable) {
-		return null;
+	public List<UserSearchResponse> getAll(UserSearchRequest userSearchRequest, Pageable pageable) {
+		List<User> users = userRepository.findAlls(userSearchRequest, pageable);
+		List<UserSearchResponse> result = new ArrayList<>();
+		for(User it : users) {
+			UserSearchResponse userDTO = new UserSearchResponse();
+			userDTO.setId(it.getId());
+			userDTO.setUsername(it.getUsername());
+			userDTO.setPassword(it.getPassword());
+			userDTO.setImage(it.getImage());
+			result.add(userDTO);
+		}
+		return result;
 	}
+
+	@Override
+	public UserDTO getUerResponse(Long id) {
+		UserDTO  userDTO = new UserDTO();
+		User user = userRepository.findById(id).get();
+		userDTO.setUsername(user.getUsername());
+		userDTO.setPassword(user.getPassword());
+		userDTO.setImage(user.getImage());
+		return userDTO;
+	}
+
+	@Override
+	public int countTotalItem(List<UserSearchResponse> list) {
+		int s = 0;
+		for(UserSearchResponse it : list) {
+			s+= userRepository.countTotalItem(it);
+		}
+		return s;
+	}
+	
+	
 
 }

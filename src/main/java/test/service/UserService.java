@@ -6,7 +6,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import test.entity.User;
+import test.model.UserDTO;
 import test.model.UserRequest;
+import test.model.UserSearchRequest;
+import test.model.UserSearchResponse;
 
 public interface UserService {
 
@@ -14,5 +17,9 @@ public interface UserService {
 	
 	void addOrUpdateUser(UserRequest userRequest);
 	
-	List<User> getAll(Pageable pageable);
+	List<UserSearchResponse> getAll(UserSearchRequest userSearchRequest, Pageable pageable);
+	
+	UserDTO getUerResponse(Long id);
+	
+	public int countTotalItem(List<UserSearchResponse> list);
 }

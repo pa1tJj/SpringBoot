@@ -1,53 +1,35 @@
 package test.model;
 
-import org.springframework.web.multipart.MultipartFile;
-
-public class UserRequest {
-
+public class UserSearchResponse extends AbstractDTO{
 	private Long id;
 	private String username;
 	private String password;
-	private String role;
-	private MultipartFile image;
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
+	private String image;
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public MultipartFile getImage() {
+	public String getImage() {
 		return image;
 	}
-
-	public void setImage(MultipartFile image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
-
+	
+	
 }
