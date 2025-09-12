@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Danh sách sản phẩm</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+}
+
+h1 {
+	margin-bottom: 15px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 15px;
+}
+
+th, td {
+	border: 1px solid #ccc;
+	padding: 8px 12px;
+	text-align: left;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+tr:hover {
+	background-color: #f9f9f9;
+}
+
+.pagination {
+	text-align: center;
+	margin-top: 15px;
+}
+
+.pagination button {
+	margin: 0 3px;
+	padding: 5px 10px;
+	border: 1px solid #999;
+	background: #fff;
+	cursor: pointer;
+}
+
+.pagination button.active {
+	background: #333;
+	color: white;
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+	<form th:action="@{/test/product}" th:object="${request}">
+		<input type="text" name="name" placeholder="Tìm theo tên" th:value="${request.name}"> 
+		<input type="number" name="minPrice" placeholder="Giá từ" th:value="${request.minPrice}">
+		<input type="number" name="maxPrice" placeholder="Giá đến" th:value="${request.maxPrice}">
+		<button type="submit" id="btnSearch">Tìm kiếm</button>
+	</form>
+	<h1>Danh sách sản phẩm</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Tên sản phẩm</th>
+				<th>Giá</th>
+			</tr>
+		</thead>
+		<tbody th:each="item : ${product.productDTOs}">
+			<tr>
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.price}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- Phân trang -->
+	<form th:action="@{/test/product}" method="get" class="pagination">
+		<button>&laquo; Trước</button>
+		<span th:each="num : ${#numbers.sequence(1, product.totalPage)}">
+			<button type="submit" name="page" th:text="${num}" th:value="${num}"></button>
+		</span>
+		<button>Sau &raquo;</button>	
+	</form>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+	    <!--$('#btnSearch').click(function(e) {
+	    	 e.preventDefault();
+	    	 var data = null;
+	    	 $.ajax({
+	    		 url:"/test/product",
+	    		 method:"GET",
+	    		 data: data
+	    	 })
+	     }) -->
+    </script>
+
+</body>
+</html>

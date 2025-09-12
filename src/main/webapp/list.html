@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách sản phẩm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      margin-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+    .pagination {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .pagination button {
+      margin: 0 3px;
+      padding: 5px 10px;
+      border: 1px solid #999;
+      background: #fff;
+      cursor: pointer;
+    }
+    .pagination button.active {
+      background: #333;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Danh sách sản phẩm</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sản phẩm 1</td>
+        <td>150,000 VND</td>
+      </tr>
+      <tr>
+        <td>Sản phẩm 2</td>
+        <td>250,000 VND</td>
+      </tr>
+      <tr>
+        <td>Sản phẩm 3</td>
+        <td>300,000 VND</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Phân trang -->
+  <div class="pagination">
+    <button>&laquo; Trước</button>
+    <button class="active">1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>Sau &raquo;</button>
+  </div>
+
+</body>
+</html>
