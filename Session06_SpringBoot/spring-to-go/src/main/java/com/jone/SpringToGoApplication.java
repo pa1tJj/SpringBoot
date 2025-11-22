@@ -1,0 +1,25 @@
+package com.jone;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication//mang nhiều ý nghĩa gộp bên trong gồm @Configuration, @ComponentScan
+public class SpringToGoApplication {
+
+	public static void main(String[] args) {
+		//tạo ra context, tạo ra IoC Container chứa các @Bean
+		//câu lệnh này xong là các Bean xong
+		ApplicationContext context =  SpringApplication.run(SpringToGoApplication.class, args);
+		//ĐƯỢC QUYỀN DÙNG BEAN SAU LỆNH NÀY
+		ExcelGenerator excelGenerator = context.getBean("spr", ExcelGenerator.class);
+		excelGenerator.generateFile("dspringboot_1350");
+	}
+	
+	@Bean("spr")
+	public ExcelGenerator excelGenerator() {
+		return new ExcelGenerator();
+	}
+
+}

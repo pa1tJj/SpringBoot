@@ -1,0 +1,20 @@
+package com.jone.di_to_go.loosecoupling.di.v2setter;
+
+public class MainDIV2 {
+	public static void main(String[] args) {
+		//DEPENDENCY ĐÃ LỘ DIỆN QUA SETTER(), NHÀ MÌNH CẦN BÁC THỢ Ở NƠI KHÁC ĐẾN GIÚP, TIÊM/CHÍCH DEPENDENCY QUA SETTER
+		EmailSender emailSender = new EmailSender();
+		UserService userService = new UserService();//chưa mời bác thợ , vì không dùng constructor mà đi qua setter()
+		userService.setEmailSender(emailSender);//TIÊM DEPENDENCY VÀO RỒI
+		userService.registerAccount(new Account());
+	}
+}
+
+//CLASS MAIN() NÀY LÀ NƠI CHỨA OBJECT DEPENDENCY, VÌ NÓ CHỦ ĐỘNG NEW EMAIL-SENDER() LÀ DEPENDENCY ĐẤY
+//NƠI CHỨA CÁC OBJECT DEPENDENCY (ĐC NEW) THÌ GỌI LÀ CONTAINER
+//VÀ CODE CHÍNH CỦA TA KO NEW OBJ DEPENDENCY NGẦM MÀ CHỦ ĐỘNG ĐỂ NƠI KHÁC NEW, NƠI KHÁC TIÊM CHÍCH VÀO, TA ĐÃ ĐẢO NGƯỢC (INVERT) TIẾN TRÌNH QUẢN LÍ
+//TA KHÔNG THAM LAM KIỂM SOÁT HẾT VIỆC TẠO OBJ DEPENDENCY MÀ CHIA BỚT RA CHO ĐỨA KHÁC TẠO RỒI CHÍCH VÀO, CHUYỂN QUYỀN KIỂM SOÁT TẠO OBJ CHO NGƯỜI KHÁC
+//MÌNH TẬP TRUNG SỬ DỤNG NÓ THÔI, GỌI LÀ IoC
+
+// IoC: LÀ NGUYÊN LÍ PRINCIPLE, NÓI VỀ Ý TƯỞNG THÔI, BỚT KIỂM SOÁT LẠI
+// DI: LÀ CÁCH LÀM CỤ THẾ, IMPLEMENTATION

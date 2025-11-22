@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Chỉnh sửa phim</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<style>
+body {
+	font-family: "Segoe UI", sans-serif;
+	background-color: #fff5f7;
+	padding: 20px;
+}
+
+.edit-form {
+	max-width: 600px;
+	margin: 0 auto;
+	background: white;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+}
+
+h2 {
+	text-align: center;
+	color: #e75480;
+	margin-bottom: 20px;
+}
+
+label {
+	font-weight: bold;
+	display: block;
+	margin-top: 10px;
+}
+
+input[type="text"], input[type="number"], textarea, select {
+	width: 100%;
+	padding: 8px;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	margin-top: 5px;
+}
+
+button {
+	background-color: #e75480;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	margin-top: 20px;
+	border-radius: 8px;
+	cursor: pointer;
+	width: 100%;
+	font-weight: bold;
+}
+
+button:hover {
+	background-color: #d14770;
+}
+
+img.preview {
+	margin-top: 10px;
+	max-width: 150px;
+	border-radius: 10px;
+}
+</style>
+</head>
+<body>
+	<form class="edit-form" th:object="${movie}" th:action="@{/save-movie}"
+		 method="post" enctype="multipart/form-data">
+		<h2>🎬 Chỉnh sửa phim</h2>
+		<input type="hidden" th:field="*{id}"/>   
+		
+		<label for="name">Tên phim</label> 
+		<input type="text" id="name"  th:field="*{name}" placeholder="Nhập tên phim"> 
+		<span th:errors="*{name}" style="color: red"></span>
+		
+		<label for="detail">Chi tiết</label>
+		<textarea id="detail" rows="3" th:field="*{detail}" placeholder="Tóm tắt nội dung..."></textarea>
+		<span th:errors="*{detail}" style="color: red"></span>
+
+		<label for="duration">Thời lượng (phút)</label> 
+		<input type="text" id="duration" placeholder="VD: 120" th:field="*{duration}"> 
+		<span th:errors="*{duration}" style="color: red"></span>
+		
+		<label for="episodes">Số tập</label> 
+		<input type="number" id="episodes" th:field="*{episodes}"  placeholder="VD: 12">
+		<span th:errors="*{episodes}" style="color: red"></span>
+		
+		<label for="genre">Thể loại</label> 
+			<select id="genre" name="genre">
+			     <option th:each="item : ${genre}" th:value="${item.id}" th:text="${item.name}" th:selected="${movie.genre != null && item.id == movie.genre.id}"></option>
+		    </select> 
+		<label for="image">Ảnh phim</label> 
+		<div>
+			<input type="file" th:field="*{image}"
+				onchange="preview.src=window.URL.createObjectURL(this.files[0])">
+			<img id="preview" width="200" th:src="@{'/images/' + ${movie.image}}" >
+		</div>
+
+		<button type="submit">💾 Lưu thay đổi</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+package com.jone.mvnp.mvnp_master_data.entity;
+
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+public class Subject {
+	private String code;
+	private String name;
+	private int credits;
+	private double hours;
+
+}

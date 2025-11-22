@@ -1,0 +1,13 @@
+package com.jone.heath.heathy_bmi;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

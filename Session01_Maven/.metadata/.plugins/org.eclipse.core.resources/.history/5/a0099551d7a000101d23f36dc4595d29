@@ -1,0 +1,16 @@
+package com.jone.heath.heathy_bmi;
+
+import com.jone.heath.bmi.core.BmiCalculator;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        BmiCalculator b = new BmiCalculator();
+        System.out.print("tính tỉ lê:" + b.getBmi(50, 1.65));
+    }
+}

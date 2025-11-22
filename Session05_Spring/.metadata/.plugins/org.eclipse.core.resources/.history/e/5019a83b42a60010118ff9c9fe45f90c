@@ -1,0 +1,6 @@
+package com.jone.spring.spring_to_go.noioc;
+
+//CLASS NÀY CHUYÊN LO VIỆC GENERATE RA PDF - THỎA SRP TRONG SOLID
+public class PdfGenerator {
+
+}

@@ -1,0 +1,9 @@
+package com.jone.mvnp.mvnp_master_data.entity;
+
+public class Subject {
+	private String code;
+	private String name;
+	private int credits;
+	private double hours;
+
+}

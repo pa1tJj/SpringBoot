@@ -1,0 +1,11 @@
+package com.jone.spring.spring_to_go.ioc.v4di_setter;
+
+public class ContractService {
+
+	private PdfGenerator pdfGenerator; //KO NEW CHỜ TIÊM/CHÍCH VÀO
+	
+	//HÀM set()
+	public void setPdfGenerator(PdfGenerator pdfGenerator) {
+		this.pdfGenerator = pdfGenerator;
+	}
+}

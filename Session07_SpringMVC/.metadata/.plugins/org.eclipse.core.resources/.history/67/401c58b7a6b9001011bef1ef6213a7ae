@@ -1,0 +1,5 @@
+package com.jone.javweb.config;
+
+public class FileNotEmpty {
+
+}

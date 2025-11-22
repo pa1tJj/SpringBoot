@@ -1,0 +1,13 @@
+package com.jone.javweb.model.response;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.Data;
+
+@Data
+public class Response {
+
+	private List<Object> list = new ArrayList<>();
+	private int total;
+}

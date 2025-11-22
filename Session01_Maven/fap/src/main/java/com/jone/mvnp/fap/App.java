@@ -1,0 +1,45 @@
+package com.jone.mvnp.fap;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+/**
+ * Hello world!
+ */
+public class App {
+    public static void main(String[] args) {
+    	 Connection conn = null;
+    	 try {
+
+    	            String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=HSF302;encrypt=true;trustServerCertificate=true";
+    	            String user = "sa";
+    	            String pass = "2183";
+    	            //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    	            //JDBC HIỆN NAY TỰ ĐI TÌM DRIVER CỦA CÁC LOẠI CSDL NHƯ SQL, MYSQL...THÔNG QUA DẤU HIỆU TRONG URL Ở TRÊN
+    	            conn = DriverManager.getConnection(dbURL, user, pass);
+    	            System.out.println("Connect to DB successfully");
+    	            //KẾT NỐI THÀNH CÔNG THẰNG VÔ DIỆN -SERVER HẬU TRƯỜNG THÌ BẮT ĐẦU MÓC NỐI TABLE QUA CÂU SQL
+    	            
+    	            //TẠO CLASS PREPAREDSTAMENT DÙNG QUẢN LÝ CÂU LỆNH SQL
+    	            PreparedStatement preparedStatement = conn.prepareStatement("SELECT *FROM subject");
+    	            ResultSet rs = preparedStatement.executeQuery();//THỰC THI SQL VÀ TRẢ VỀ KẾT QUẢ
+    	            //GIỐNG ARRAYLIST, CHỨA NHIỀU DÒNG/RECORD, MỖI DÒNG LÀ INFO CỦA MÔN HỌC
+    	            //CHƠI JDBC THÌ PHẢI NHỚ TÊN CỘT--- MANG THIÊN HƯỚNG DB FIRST, DB ORIENTED
+    	            //VÒNG LẶP LẤY CÁC DÒNG, MỖI DÒNG CHỦ ĐỘNG NHỚ TÊN TABLE, LẤY CỘT --> NHƯỢC ĐIỂM CỦA JDBC
+    	            
+    	            while(rs.next()) {
+    	            	String code = rs.getString("code");
+    	            	String name = rs.getString("name");
+    	            	int credits = rs.getInt("Credits");
+    	            	int hours = rs.getInt("StudyHours");
+    	            	//System.out.println(code + "|" + name + "|" + credits + "|" + hours + "|");
+    	            	System.out.printf("|%10s|%-40s|%2s|%4d|\n", code, name, credits, hours);
+    	            }
+    	            conn.close();
+    	 } catch (Exception ex) {
+    	            ex.printStackTrace();
+    	}
+    }
+}

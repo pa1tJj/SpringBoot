@@ -1,0 +1,23 @@
+package com.jone.spring.spring_to_go.ioc.v1scan;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class MainV1 {
+
+	public static void main(String[] args) {
+		//KHỞI TẠO CONTAINER, THÙNG CHỨA OBJECT, THÙNG CHỨA BEAN, VÀO SPRING RỒI ĐÓ HONEY
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		//context thuộc class ApplicationContext là trùm cuối quản lí các Object - bean , quản lí luôn việc tiêm vào các object khác
+		//đứa nào muốn được tiêm vào, đứa đó phải là bean
+		//TRÙM CUỐI CONTEXT CHƠI TRONG RAM
+		//trùm cuối này giống ENTITY-MANAGER-FACTORY ĐÃ HỌC - NHƯNG CHƠI VỚI DB
+		
+		//LẤY BEAN RA DÙNG
+		PdfGenerator pdfGenerator = (PdfGenerator) context.getBean("pdfGenerator");
+		pdfGenerator.generateFile("434");
+		PdfGenerator pdfGenerator2 = context.getBean(PdfGenerator.class);
+		pdfGenerator.generateFile("434");
+	}
+
+}

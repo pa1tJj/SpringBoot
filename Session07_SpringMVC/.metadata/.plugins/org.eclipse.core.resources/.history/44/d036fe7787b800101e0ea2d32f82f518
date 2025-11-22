@@ -1,0 +1,56 @@
+package com.jone.javweb.controller;
+
+import java.util.List;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.jone.javweb.model.dto.MovieDTO;
+import com.jone.javweb.model.dto.MovieSearch;
+import com.jone.javweb.model.entity.Auth;
+import com.jone.javweb.model.response.MovieResponse;
+import com.jone.javweb.model.response.Response;
+import com.jone.javweb.service.GenreService;
+import com.jone.javweb.service.MovieService;
+
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+@RequestMapping("/phangxxx")
+public class MovieController {
+	
+	private final MovieService movieService;
+	private final GenreService genreService;
+	private final Response response;
+	
+	public MovieController(MovieService movieService, GenreService genreService, Response response) {
+		this.movieService = movieService;
+		this.genreService = genreService;
+		this.response = response;
+	}
+
+	@GetMapping("/movist")
+	public String searchMovies(@ModelAttribute MovieSearch movieSearch, Model model, HttpSession session) {
+		List<MovieResponse> movies = movieService.searchMovies(movieSearch.getName(), movieSearch.getGenreId(), PageRequest.of(0, 0));
+		Auth auth = (Auth)session.getAttribute("auth");
+		response.setList(movies);
+		model.addAttribute("auth", auth);
+		model.addAttribute("movies", response.);
+		model.addAttribute("totalPage", movieService.getTotalItem());
+		model.addAttribute("search", new MovieSearch());
+		model.addAttribute("genre", genreService.findAll());
+		return "movies";
+	}
+	
+	@GetMapping("/movie-details/{id}")
+	public String getMovieDetail(@PathVariable Long id, Model model) {
+		model.addAttribute("movieDetail", movieService.getDetail(id));
+		return "movie-details";
+	}
+}

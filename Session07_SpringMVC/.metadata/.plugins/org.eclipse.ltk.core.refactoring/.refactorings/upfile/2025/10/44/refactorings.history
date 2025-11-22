@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.jone.uploadfile.entity.Picure&apos; to &apos;Picture&apos;&#x0D;&#x0A;- Original project: &apos;upfile&apos;&#x0D;&#x0A;- Original element: &apos;com.jone.uploadfile.entity.Picure&apos;&#x0D;&#x0A;- Renamed element: &apos;com.jone.uploadfile.entity.Picture&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Picure&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.jone.uploadfile.entity{Picure.java[Picure" matchStrategy="1" name="Picture" qualified="false" references="true" similarDeclarations="false" stamp="1761730593592" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.tightcoupling.UserRepository"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.tightcoupling.EmailSender"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.tightcoupling.UserService"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.tightcoupling.Account"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v1constructor.UserRepository"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v1constructor.EmailSender"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v1constructor.UserService"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v1constructor.Account"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v2setter.UserRepository"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v2setter.EmailSender"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v2setter.UserService"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v2setter.Account"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v3finalfantasy.UserRepository"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v3finalfantasy.EmailSender"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v3finalfantasy.Account"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v3finalfantasy.UserService"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v3finalfantasy.SmsSender"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v3finalfantasy.WhatsAppSender"/>
+    <fullyQualifiedTypeName name="com.jone.di_to_go.loosecoupling.di.v3finalfantasy.NotiService"/>
+</qualifiedTypeNameHistroy>

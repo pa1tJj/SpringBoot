@@ -1,0 +1,31 @@
+package com.jone.superapp.student_manager_otm_mto_mtm.entity.unione;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Entity
+@Table(name = "major")
+@AllArgsConstructor
+@Data
+public class Major {
+	@Id
+	@Column(name = "id", columnDefinition = "CHAR(2)")
+	private String id;
+	
+	@Column(name = "name", columnDefinition = "NVARCHAR(255)")
+	private String name;
+	
+	// MỘT MAJOR CÓ NHIỀU SINH VIÊN
+	//MUỐN LƯU NHIỀU INFO, LIST/ARRAYLIST THẲNG TIẾN, OBJECT NÀY THAM CHIẾU THÔNG TIN OBJECT KIA
+	private List<Student> students = new ArrayList<>();
+	//để có cụ thể sinh viên nào, ta gọi students.add(một bạn sv new ở đâu đó)
+	//                                   students.add(new Student()...) )
+}
+

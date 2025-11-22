@@ -1,0 +1,16 @@
+package com.jone.mvnp.mvnp_master_data;
+
+import com.jone.mvnp.mvnp_master_data.entity.Student;
+
+/**
+ * Hello world!
+ */
+public class App {
+    public static void main(String[] args) {
+    	Student an = new Student("sv01", "Đỗ Phúc An", 2004, 3.3);
+    	Student binh = new Student("sv02", "Trung Văn Bình", 2004, 3.7);
+    	
+    	System.out.println(an);
+    	System.out.println(binh);
+    }
+}

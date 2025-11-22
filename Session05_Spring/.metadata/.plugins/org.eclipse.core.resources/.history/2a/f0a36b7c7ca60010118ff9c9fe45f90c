@@ -1,0 +1,17 @@
+package com.jone.spring.spring_to_go.ioc.v2bean;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class MainV2 {
+	public static void main(String[] args) {
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		PdfGenerator pdfGenerator = (PdfGenerator) context.getBean("pdfGenerator");
+		pdfGenerator.generateFile("14:36");
+		ExcelGenerator excelGenerator = (ExcelGenerator) context.getBean("excelGenerator");
+		excelGenerator.generateFile("cv");
+		DocumentGenerator excel = new ExcelGenerator();
+		DocumentGenerator pdf = new PdfGenerator();
+	}
+
+}

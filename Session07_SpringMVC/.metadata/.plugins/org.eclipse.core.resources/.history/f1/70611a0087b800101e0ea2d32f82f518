@@ -1,0 +1,5 @@
+package com.jone.javweb.model.response;
+
+public class Response {
+
+}

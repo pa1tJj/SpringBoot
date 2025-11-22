@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>THÔNG TIN SẢN PHẨM</h1>
+	<div>
+		<div th:object="${result}">
+			<label>id</label>
+			<p th:text="${result.id}"></p>
+		</div>
+
+		<div>
+			<label>Name</label>
+			<p th:text="${result.name}"></p>
+		</div>
+
+		<div>
+			<label>Quantity</label>
+			<p th:text="${result.quantity}"></p>
+		</div>
+
+		<div>
+			<label>Price</label>
+			<p th:text="${result.price}"></p>
+		</div>
+	</div>
+</body>
+</html>

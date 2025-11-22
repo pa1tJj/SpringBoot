@@ -1,0 +1,26 @@
+package com.jone.spring.spring_to_go.ioc.v4di_setter_and_field;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ContractService {
+
+	private PdfGenerator pdfGenerator; //KO NEW CHỜ TIÊM/CHÍCH VÀO
+	
+	//HÀM set()
+	//CHƠI SETTER BẮT BUỘC PHẢI CÓ AUTOWIRED VÌ NÓ LÀ HÀM THƯỜNG KHÔNG ÉP PHẢI GỌI NGAY LÚC TẠO OBJECT, DO ĐÓ KHIẾN THẰNG DEPENDENCY BỊ NULL
+	//VÌ THẾ HAY CHỌN TIÊM/CHÍCH QUA CONSTRUCTOR
+	@Autowired
+	public void setPdfGenerator(PdfGenerator pdfGenerator) {
+		this.pdfGenerator = pdfGenerator;
+	}
+	
+	public ContractService() {}
+	
+	public void processContract() {
+		//TODO: logic xử lí contract
+		
+		pdfGenerator.generateFile("masterm1nd");//có nguy cơ bị null do chưa set() mà đi qua constructor
+	}
+}

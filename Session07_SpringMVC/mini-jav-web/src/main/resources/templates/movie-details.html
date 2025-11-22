@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi Tiết Phim – Your Name</title>
+<style>
+/* Reset và nền */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+	background: linear-gradient(to bottom right, #ffe6ec, #fff7fa);
+	color: #333;
+	padding: 40px;
+}
+
+/* Khung chính */
+.container {
+	max-width: 1000px;
+	background: #fffafa;
+	margin: 0 auto;
+	border-radius: 16px;
+	box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+	overflow: hidden;
+	animation: fadeIn 0.8s ease;
+}
+
+keyframes fadeIn {from { opacity:0;
+	transform: translateY(20px);
+}
+
+to {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+}
+
+/* Ảnh và nội dung */
+.movie-detail {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.movie-poster {
+	flex: 1 1 40%;
+}
+
+.movie-poster img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.movie-info {
+	flex: 1 1 60%;
+	padding: 30px 40px;
+}
+
+.movie-info h1 {
+	color: #d94c8f;
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.movie-info .meta {
+	color: #8c6270;
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+
+.movie-info p {
+	font-size: 15px;
+	color: #555;
+	line-height: 1.6;
+	margin-bottom: 25px;
+}
+
+/* Nút */
+button {
+	background: linear-gradient(to right, #f7a1c4, #f3c6dc);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 20px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+button:hover {
+	background: linear-gradient(to right, #f48fb1, #f6a5c0);
+	box-shadow: 0 4px 12px rgba(244, 143, 177, 0.4);
+}
+
+/* Trailer */
+.trailer {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.trailer iframe {
+	width: 80%;
+	height: 400px;
+	border-radius: 12px;
+	border: 2px solid #f7c6d5;
+	box-shadow: 0 6px 20px rgba(255, 182, 193, 0.4);
+}
+
+/* Responsive */
+@media ( max-width : 768px) {
+	.movie-detail {
+		flex-direction: column;
+	}
+	.movie-info {
+		padding: 20px;
+	}
+	.trailer iframe {
+		width: 100%;
+		height: 250px;
+	}
+}
+/* Nút và liên kết */
+button,
+a.btn-back {
+	display: inline-block;
+	background: linear-gradient(to right, #f7a1c4, #f3c6dc);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 20px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.3s;
+	text-decoration: none;
+}
+
+button:hover,
+a.btn-back:hover {
+	background: linear-gradient(to right, #f48fb1, #f6a5c0);
+	box-shadow: 0 4px 12px rgba(244, 143, 177, 0.4);
+}
+
+/* Nút quay lại riêng biệt */
+a.btn-back {
+	background: #fff;
+	color: #d94c8f;
+	border: 1px solid #f7a1c4;
+	margin-left: 10px;
+}
+
+a.btn-back:hover {
+	background: #ffe6ef;
+	box-shadow: 0 4px 12px rgba(247, 150, 190, 0.3);
+}
+</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="movie-detail" th:object="${movieDetail}">
+			<div class="movie-poster">
+				<img th:src=" '/images/' + *{image}" alt="Your Name">
+			</div>
+
+			<div class="movie-info">
+				<h1 th:field="*{name}"></h1>
+				<div class="meta">🎬 Thể loại: <span th:text="${movieDetail.genre.name}">xxx</span> &nbsp;|&nbsp; ⏱
+					Thời lượng: <span th:text="${movieDetail.duration}"></span> &nbsp;|&nbsp; 📅 Số Tập: <span th:text="${movieDetail.episodes}"></span></div>
+
+				<p th:text="${movieDetail.detail}"></p>
+
+				<button>🌸 Xem ngay</button>
+				<a class="btn-back" th:href="@{/phangxxx/movist}">⬅Quay lại danh sách</a>
+			</div>
+		</div>
+
+		<div class="trailer">
+			<h2 style="color: #c93b7c; margin-bottom: 20px;">🎥 Trailer
+				chính thức</h2>
+			<iframe src="https://www.youtube.com/embed/xU47nhruN-Q"
+				title="Your Name Trailer" frameborder="0" allowfullscreen>
+			</iframe>
+		</div>
+	</div>
+
+</body>
+</html>

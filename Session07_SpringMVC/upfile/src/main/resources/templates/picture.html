@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.pic {
+	margin: 200px 600px
+}
+table, tr, th, td{border:1px solid black}
+</style>
+</head>
+<body>
+	<div class="pic">
+		<table>
+			<tr>
+				<th>Tên</th>
+				<th>Ảnh</th>
+			</tr>
+			<tr th:each="item : ${result}">
+				<td th:text="${item.name}">Phan Anh Tuấn</td>
+				<td><img th:src="@{'/images/' + ${item.imageUrl}}" alt="Ảnh 1" width="200px" height="200px"></td>
+			</tr>
+		</table>
+	</div>
+	<p><a th:href="@{/up}">thêm ảnh</a></p>
+</body>
+</html>

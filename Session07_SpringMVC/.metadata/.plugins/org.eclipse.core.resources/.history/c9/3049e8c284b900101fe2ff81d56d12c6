@@ -1,0 +1,28 @@
+package com.jone.javweb.model.response;
+
+import com.jone.javweb.model.entity.Genre;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class MovieResponse {
+
+	private Long id;
+	
+	@NotBlank(message = "vui lòng nhập họ tên")
+	@Pattern(regexp = "^[\\\\p{L}\\\\p{M}0-9 _-]+$", message = "tên không được chứa kí tự đặc biệt")
+	private String name;
+	private String duration;
+	private String image;
+	private Long episodes;
+	private String detail;
+	private Genre genre;
+	private String actor;
+
+}

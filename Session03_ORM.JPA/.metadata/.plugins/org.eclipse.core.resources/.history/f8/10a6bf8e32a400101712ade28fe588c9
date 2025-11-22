@@ -1,0 +1,31 @@
+package com.jone.superapp.student_manager_otm_mto_mtm.entity.unione;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jone.superapp.student_manager_otm_mto_mtm.infra.JpaUtil;
+
+import jakarta.persistence.EntityManager;
+
+//JpaUtil - có hàm đọc file Persistence.xml để kết nối đến CSDL, đúng Driver và giúp tạo ra ông quản lí ENTITY-MANAGER
+public class MainUniOne {
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void createMajorStudents() {
+		Major major = new Major("SE", "SOFTWARE ENGINEERING | KĨ THUẬT PHẦN MỀM");
+		Student s1 = new Student("SE100", "An Nguyễn", 2005, 8.8);
+		Student s2 = new Student("SE100", "Bình Lê", 2006, 8.2);
+		major.getStudents().add(s1);
+		major.getStudents().add(s2);
+		//OOP ĐÃ XONG VỀ RELATIONSHIP
+		//XUỐNG TABLE , ĐỔ DOMINO - CASCADE 1 MAJOR, N STUDENT XUỐNG LUÔN THEO ONE ĐI XUỐNG, MANY ĐI THEO
+		//NHỜ JpaUtil chuẩn bị nhà xưởng Factory, mời giám đốc về quản lí Entity - EntityManager
+		EntityManager entityManager = JpaUtil.getEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.persist(major);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+}

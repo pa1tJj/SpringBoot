@@ -1,0 +1,23 @@
+INDEX VERSION 1.134+D:\BackendJava\My_Workspace\Space_Deep\Session03_ORM.JPA\.metadata\.plugins\org.eclipse.jdt.core
+815890620.index
+2472534479.index
+3413270776.index
+1390430313.index
+2838573507.index
+720857673.index
+2807795122.index
+3601341156.index
+3499015824.index
+2119741628.index
+2878091272.index
+66889551.index
+1706115706.index
+4146675655.index
+339202216.index
+1656354383.index
+2017402925.index
+2819919624.index
+1865797976.index
+496320224.index
+3561875960.index
+2269644008.index

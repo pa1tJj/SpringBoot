@@ -1,0 +1,10 @@
+package com.jone.di_to_go.loosecoupling.di.v3finalfantasy;
+
+public class EmailSender {
+	public void sendEmail(String recipient, String message) {
+		//TODO: logic xử lý gửi email
+		
+		//thông báo thành công
+		System.out.println("(DI - V3 - OCP): Mail was sent to " + recipient + " succesfully!\n" + message);
+	}
+}

@@ -1,0 +1,14 @@
+package com.jone.spring.spring_to_go.ioc.v3di_constructor;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class PdfGenerator {
+
+	public void generateFile(String fileName) {
+		//TODO: logic xử lí gen ra file pdf
+		
+		System.out.println("V3 DI IoC -> The pdf file " + fileName + ".pdf has been generated successfully!");
+	}
+
+}

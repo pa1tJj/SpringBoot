@@ -1,0 +1,70 @@
+package com.jone.javweb.controller;
+
+import java.util.List;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.jone.javweb.model.dto.MovieDTO;
+import com.jone.javweb.model.dto.MovieSearch;
+import com.jone.javweb.model.entity.Auth;
+import com.jone.javweb.model.response.MovieResponse;
+import com.jone.javweb.model.response.Response;
+import com.jone.javweb.service.GenreService;
+import com.jone.javweb.service.MovieService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+@RequestMapping("/phang")
+public class AdminController {
+	
+	private final MovieService movieService;
+	private final GenreService genreService;
+	private final Response response;
+
+	@GetMapping("/doing")
+	public String getAdmin(@ModelAttribute MovieSearch movieSearch, HttpSession session, Model model) {
+		List<MovieResponse> movies = movieService.searchMovies(null, null, PageRequest.of(movieSearch.getPage() - 1, movieSearch.getMaxPageItem()));
+		response.setList(movies);
+		response.setTotal(movieService.getTotalItem());
+		Auth auth = (Auth)session.getAttribute("auth");
+		model.addAttribute("auth", auth);
+		model.addAttribute("search", new MovieSearch());
+		model.addAttribute("movies", response);
+		return "admin";
+	}
+	
+	@GetMapping("/movie-edit-{id}") 
+	public String getMovieEdit(@PathVariable Long id, Model model) {
+		model.addAttribute("movie", movieService.getDetail(id));
+		model.addAttribute("genre", genreService.findAll());
+		return "movie-edit";
+	}
+	
+	@GetMapping("/movie-edit") 
+	public String getMovieEdit( Model model) {
+		model.addAttribute("movie", new MovieDTO());
+		model.addAttribute("genre", genreService.findAll());
+		return "movie-edit";
+	}
+	
+	@PostMapping("/save-movie")
+	public String getSave(@Valid @ModelAttribute MovieDTO movieDTO, Model model, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return "movie-edit";
+		} else {
+			return "forward:/phang-api/movie-edit";
+		}
+	}
+}

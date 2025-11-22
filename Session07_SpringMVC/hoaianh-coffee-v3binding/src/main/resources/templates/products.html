@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>product</title>
+</head>
+<body>
+	<h2 th:if="${formMsg} != null" th:text="'STATUS:' + ${formMsg}"></h2>
+	<h2 th:if="${pname} != null" th:text="'NAME:' + ${pname}"></h2>
+	<h1>do something!!!!!!!!!!!!!!! -> Admin</h1>
+	<h3 th:text="${msg}"></h3>
+
+	<table border="1px">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>nam</th>
+				<th>price</th>
+				<th>action</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr th:each="item : ${products}">
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.price}"></td>
+				<td><a th:href="@{/products/edit/} + ${item.id}">xóa</a>|<a
+					th:href="@{/products/edit/} + ${item.id}">sửa</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{'/product/create'}">thêm</a>
+	<!-- Script alert sau khi trang load xong -->
+	<script th:if="${formMsg}" th:inline="javascript">
+    window.addEventListener('load', function() {
+        // Thymeleaf sẽ render thành: alert("…");
+        alert([[${formMsg}]]);
+    });
+</script>
+
+</body>
+
+
+</html>

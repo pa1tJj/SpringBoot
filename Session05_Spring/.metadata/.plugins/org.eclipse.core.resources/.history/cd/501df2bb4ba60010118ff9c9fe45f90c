@@ -1,0 +1,6 @@
+package com.jone.spring.spring_to_go.ioc.v1scan;
+
+//class này là nơi khai báo các object dependency của riêng ta
+public class AppConfig {
+
+}

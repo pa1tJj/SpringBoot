@@ -1,0 +1,29 @@
+package com.jone.spring.spring_to_go.ioc.v3di_constructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ConstractService {
+
+	//class này xử lí hợp đồng là chính
+	//cần 2 dependency: repo, generator
+	//@Autowired
+	private PdfGenerator pdfGenerator;//không new, chờ tiêm/chích vào
+	
+	//tiêm/chích vào , new đâu không cần biết - new từ IoC Container
+	//@Autowired //tiêm/chích vào 1 bean khác qua constructor
+//	public ConstractService(PdfGenerator pdfGenerator) {
+//		this.pdfGenerator = pdfGenerator;
+//	}
+	
+	//dùng dependency được chích vào 
+	public void processConstract() {
+		//TODO: XỬ LÍ HỢP ĐỒNG, REPO XUỐNG DB
+		
+		//generator file
+		pdfGenerator.generateFile("381437284738mlem");
+	}
+	
+ 	
+}

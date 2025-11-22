@@ -1,0 +1,7 @@
+package com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional;
+
+public class MainOneMany {
+	public static void main(String[] args) {
+
+	}
+}

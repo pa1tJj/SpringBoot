@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+D:\BackendJava\My_Workspace\Space_Deep\Session04_DI.IoC\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+736223763.index
+3413270776.index

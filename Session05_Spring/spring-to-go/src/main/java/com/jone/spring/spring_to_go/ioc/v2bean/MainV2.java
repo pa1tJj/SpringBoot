@@ -1,0 +1,16 @@
+package com.jone.spring.spring_to_go.ioc.v2bean;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class MainV2 {
+	public static void main(String[] args) {
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		//sẽ xảy ra xung đột bởi 2 bean cùng kiểu cha DocumentDGenerator nên IoC không biết gọi Bean nào, nhiều Bean cùng kiểu 
+		DocumentGenerator pdfGenerator =  context.getBean(DocumentGenerator.class);
+		pdfGenerator.generateFile("14:36");
+		DocumentGenerator excelGenerator = context.getBean(DocumentGenerator.class);
+		excelGenerator.generateFile("cv");
+	}
+
+}

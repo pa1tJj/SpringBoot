@@ -1,0 +1,29 @@
+package com.jone.javweb.api;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jone.javweb.model.dto.MovieDTO;
+import com.jone.javweb.service.MovieService;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/phang-api")
+public class MovieAPI {
+
+	private final MovieService movieService;
+	
+	@PostMapping("/movie-edit")
+	public ResponseEntity<?> movieEdit(@Valid @ModelAttribute MovieDTO movieDTO) {
+		movieService.save(movieDTO);
+		return ResponseEntity.status(HttpStatus.FOUND).header("location", "/phang/doing").build();
+	}
+}

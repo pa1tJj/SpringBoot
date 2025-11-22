@@ -1,0 +1,49 @@
+package com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional;
+
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity 
+@Table(name = "students")
+@Data
+@NoArgsConstructor
+public class Student {
+	@Id
+	@Column(name = "id", columnDefinition = "CHAR(8)")
+	private String id;
+	
+	@Column(name = "name", columnDefinition = "NVARCHAR(50)")
+	private String name;
+	
+	@Column(name = "yob", nullable = false)
+	private int yob;
+	
+	@Column(name = "gpa")
+	private double gpa;
+	
+	public Student(String id, String name, int yob, double gpa) {
+		this.id = id;
+		this.name = name;
+		this.yob = yob;
+		this.gpa = gpa;
+	}
+	
+	//SINH VIÊN THUỘC VỂ 1 MAJOR
+	@ManyToOne
+	@JoinColumn(name = "majorId")//không dùng Cascade
+	private Major major;
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", yob=" + yob + ", gpa=" + gpa + "]";
+	}
+	
+	
+}

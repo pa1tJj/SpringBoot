@@ -1,0 +1,51 @@
+package com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Table(name = "major")
+@Data
+public class Major {
+	@Id
+	@Column(name = "id", columnDefinition = "CHAR(2)")
+	private String id;
+	
+	@Column(name = "name", columnDefinition = "NVARCHAR(255)")
+	private String name;
+	
+	public Major(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
+	// MỘT CHUYÊN NGÀNH CÓ NHIỀU SINH VIÊN-STUDENT, TỨC LÀ MỘT MAJOR PHẢI CHỨA MỘT ARRAYLIST STUDENT
+	@OneToMany(mappedBy = "major", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY )
+	private List<Student> students = new ArrayList<>();
+	// students.add(đưa 1 sinh viên vào Major)
+	
+	public void addStudent(Student obj) {
+		students.add(obj);// 1 sinh viên đã tham gia vào chuyên ngành này nhưng chưa nói được sinh viên "obj" có đang thực sự trỏ, lưu info chuyên ngành
+		// hay không, info major của sinh viên chưa được set giá trị
+		// ta cần 2 câu: + major có sinh viên gia nhập -> qua lệnh students.add(obj)
+		//               + student phải thuộc major này -> qua lệnh obj.setMajor(this)
+		obj.setMajor(this);// sinh viên obj trỏ thẳng vào major đang đứng này, this có đủ info id, name của Major
+		//this gắn với vùng new, có bao nhiêu new có bấy nhiêu this
+	}
+	
+	public void removeStudent(Student obj) {
+		students.remove(obj);// 1 sinh viên đã đổi ngành
+		obj.setMajor(null); // tạm thời sinh viên không còn vào ngành trước đó, giờ là null
+		// sang ngành nào chưa biết nhưng đã không còn trong list này
+	}
+}
+

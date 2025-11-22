@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="D:\BackendJava\My_Workspace\Space_Deep\Session01_Maven\mvnp-master-data"/>
+			<item value="D:\BackendJava\My_Workspace\Space_Deep\Session01_Maven\heathy-bmi"/>
+			<item value="D:\BackendJava\My_Workspace\Space_Deep\Session01_Maven\bmi"/>
+			<item value="D:\BackendJava\My_Workspace\Space_Deep\Session01_Maven\bmi\src\main\java\com\jone\heath\bmi\core\BmiCalculator.java"/>
+			<item value="D:\BackendJava\My_Workspace\Space_Deep\Session01_Maven\maven-to-go\src\main\java\maven\Main.java"/>
+			<item value="D:\BackendJava\My_Workspace\Space_Deep\Session01_Maven"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="com.jone.mvnp.fap"/>
+			<item value="com.jone.mvnp.mvnp_master_data"/>
+			<item value="com.jone.heath.bmi"/>
+			<item value="com.jone.heath.heathy_bmi"/>
+		</list>
+		<list key="groupId">
+			<item value="com.jone.mvnp"/>
+			<item value="com.jone.heath"/>
+		</list>
+		<list key="artifactId">
+			<item value="fap"/>
+			<item value="mvnp-master-data"/>
+			<item value="bmi"/>
+			<item value="heathy-bmi"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="665"/>
+		<item key="x" value="720"/>
+		<item key="y" value="12"/>
+	</section>
+</section>

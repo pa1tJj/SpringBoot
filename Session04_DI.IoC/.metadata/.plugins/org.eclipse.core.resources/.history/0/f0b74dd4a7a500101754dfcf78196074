@@ -1,0 +1,12 @@
+package com.jone.di_to_go.loosecoupling.di.v3finalfantasy;
+
+public class UserService {
+
+	private SmsSender smsSender;//không new chờ tiêm/chích vào
+	private EmailSender emailSender;// không new chở tiêm/chích vào
+	private UserRepository userRepository;// không new chờ tiêm/chích vào
+	
+	//KHAI BÁO SmsSender, EmailSender đang gọi là khai báo cứng dependency không tốt cho tương lai khi cần thêm phương thức WHATSAPP
+	// không nên phụ thuộc vào cái cụ thể như trên, ta nên phụ thuộc vào cái chung chung để sau này còn dễ bổ sung các hình thức gửi 
+	// khác mà không thèm sửa code của chính class SERVICE này
+}

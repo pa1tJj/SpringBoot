@@ -1,0 +1,17 @@
+package com.jone.spring.spring_to_go.ioc.v2bean;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration // báo chùm cuối ApplicationContext vào đây tìm info để new các bean, quản lí chung
+public class AppConfig {
+
+	@Bean //object được return từ hàm này, đi vào container ngay
+	//chủ động new là mình, chủ động đặt tên object, nhưng đưa obj cho Container
+	//TÊN HÀM PHÁ CHUẨN VERB + OBJECT TRUYỀN THỐNG MÀ MANG Ý NGHĨA TÊN BIẾN OBJ, ĐỂ ĐC DÙNG NGẦM TRONG CONTAINER
+	public PdfGenerator pdfGenerator() {
+		return new PdfGenerator();
+	}
+	
+	//PdfGenerator gen = getPdfGenerator(); = pdfGenerator() = new PdfGenerator()
+}

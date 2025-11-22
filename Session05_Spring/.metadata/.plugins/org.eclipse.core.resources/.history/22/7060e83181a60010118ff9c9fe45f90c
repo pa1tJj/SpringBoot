@@ -1,0 +1,13 @@
+package com.jone.spring.spring_to_go.ioc.v3di_constructor;
+
+public class ConstractService {
+
+	//class này xử lí hợp đồng là chính
+	//cần 2 dependency: repo, generator
+	private PdfGenerator pdfGenerator;//không new, chờ tiêm/chích vào
+	
+	public ConstractService(PdfGenerator pdfGenerator) {
+		this.pdfGenerator = pdfGenerator;
+	}
+ 	
+}

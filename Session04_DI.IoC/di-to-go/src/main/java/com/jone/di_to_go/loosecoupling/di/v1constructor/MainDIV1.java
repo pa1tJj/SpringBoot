@@ -1,0 +1,19 @@
+package com.jone.di_to_go.loosecoupling.di.v1constructor;
+
+public class MainDIV1 {
+
+	public static void main(String[] args) {
+		//MUỐN CÓ SERVICE THÌ CẦN EMAIL-SENDER TRUYỀN VÀO
+		EmailSender emailSender = new EmailSender();//DEPENDENCY CHỦ ĐỘNG NEW 
+		UserService service = new UserService(emailSender);//CHÍCH TIÊM OBJ BÊN NGOÀI VÀO TRONG SERVICE
+		service.registerAccount(new Account());
+		
+		//MAIN CLASS CHỦ ĐỘNG TẠO OBJECT CLASS B, DEPENDENCY, ĐƯA VÀO CLASS CHÍNH
+		//THẰNG CHỨA, TẠO CÁC DEPENDENCY ĐƯỢC GỌI LÀ CONTAINER
+		//CHỦ ĐỘNG TẠO DEPENDENCY, ĐƯA VÀO TRONG SERVICE CLASS CHÍNH A
+		//THÌ KĨ THUẬT NÀY CODE Ở TRÊN GỌI LÀ IoC, ĐẢO NGƯỢC VIỆC KIỂM SOÁT TẠO OBJECT
+		//SERVICE MẤT BỚT QUYỀN, TRAO QUYỀN , ĐẢO QUYỀN KIỂM SOÁT DENPENDENCY 
+		//Inversion of Control
+		//Spring, Spring Boot gọi là IoC Container
+	}
+}

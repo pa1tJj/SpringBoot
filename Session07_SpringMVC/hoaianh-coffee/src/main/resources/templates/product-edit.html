@@ -1,0 +1,38 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/products-edit}" th:object="${productResponse}"
+		method="POST">
+		<div>
+			<label for="id">id</label> <input type="text" name="id" id="id"
+				th:value="${productResponse.id}">
+		</div>
+		<div>
+			<label for="name">name</label> <input type="text" name="name"
+				id="name" th:value="${productResponse.name}">
+		</div>
+		<div>
+			<label for="price">price</label> <input type="text" name="price"
+				id="price" th:value="${productResponse.price}">
+		</div>
+
+		<div>
+			<label for="cate">category:</label> 
+			<select name="cate" id="cate" >
+				<option th:each="item : ${categories}" th:text="${item.name}"  th:value="${item.id}"></option>
+			</select>
+		</div>
+
+		<span th:if="${productResponse.id} != null">
+			<button type="submit">sửa</button>
+		</span> <span th:unless="${productResponse.id}">
+			<button type="submit">thêm</button>
+		</span>
+	</form>
+
+</body>
+</html>

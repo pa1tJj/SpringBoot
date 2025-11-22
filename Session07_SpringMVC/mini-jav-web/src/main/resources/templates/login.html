@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Đăng nhập Sakura</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+	height: 100vh;
+	background: linear-gradient(to bottom right, #ffe6ec, #fff7fa);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main {
+	background-color: #fffafa;
+	width: 400px;
+	border-radius: 16px;
+	box-shadow: 0 6px 20px rgba(255, 182, 193, 0.4);
+	padding: 35px 45px;
+	border: 1px solid #ffe0eb;
+	animation: fadeIn 1s ease;
+}
+
+keyframes fadeIn {from { opacity:0;
+	transform: translateY(20px);
+}
+
+to {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+}
+.login h3 {
+	text-align: center;
+	color: #d94c8f;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+}
+
+.login p {
+	text-align: center;
+	color: #8c6270;
+	margin-bottom: 25px;
+	font-size: 14px;
+}
+
+.form {
+	margin-bottom: 18px;
+}
+
+.form label {
+	display: block;
+	color: #b35b84;
+	font-weight: bold;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+.form input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #f7c6d5;
+	border-radius: 8px;
+	background-color: #fff0f5;
+	font-size: 14px;
+	transition: all 0.3s ease;
+}
+
+.form input:focus {
+	border-color: #e88bb5;
+	outline: none;
+	box-shadow: 0 0 8px rgba(232, 139, 181, 0.6);
+	background-color: #fff;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	background: linear-gradient(to right, #f7a1c4, #f3c6dc);
+	color: white;
+	font-weight: bold;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s ease;
+	font-size: 15px;
+}
+
+button:hover {
+	background: linear-gradient(to right, #f48fb1, #f6a5c0);
+	box-shadow: 0 4px 12px rgba(244, 143, 177, 0.5);
+}
+
+button:active {
+	transform: scale(0.98);
+}
+</style>
+</head>
+<body>
+	<div class="main">
+		<div class="login">
+			<h3>🌸 LOGIN JAV 🌸</h3>
+			<p>(Đăng nhập nếu bạn trên 18+)</p>
+			<form th:action="@{/phang-admin/do-login}" th:object="${auth}" method="POST">
+				<div class="form">
+					<label>📱 Phone</label> <input type="text" th:field="*{phone}"
+						placeholder="Nhập số điện thoại">
+				</div>
+
+				<div class="form">
+					<label>🔑 Password</label> <input type="password"  th:field="*{password}"
+						placeholder="Nhập mật khẩu">
+				</div>
+
+				<div class="form">
+					<button>Đăng nhập</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+package com.jone.spring.spring_to_go.ioc.v4di_setter_and_field;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan("com.jone.spring.spring_to_go.ioc.v4di_setter_and_field")
+public class AppConfig {
+
+}

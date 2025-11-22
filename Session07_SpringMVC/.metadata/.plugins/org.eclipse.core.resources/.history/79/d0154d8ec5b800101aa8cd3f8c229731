@@ -1,0 +1,15 @@
+package com.jone.javweb.repository;
+
+import java.util.List;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.jone.javweb.model.entity.Movie;
+
+public interface MovieRepository extends JpaRepository<Movie, Long>{
+
+	List<Movie> findByNameContaining(String name, Pageable pageable);
+	List<Movie> findByGenreId(Long genreId, Pageable pageable);
+	List<Movie> findByNameContainingAndGenreId(String name, Long genreId, Pageable pageable);
+}

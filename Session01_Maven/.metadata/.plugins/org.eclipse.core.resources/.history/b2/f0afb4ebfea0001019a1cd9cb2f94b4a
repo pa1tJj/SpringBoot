@@ -1,0 +1,5 @@
+package com.jone.heath.bmi.core;
+
+public class BmiCalculator {
+
+}

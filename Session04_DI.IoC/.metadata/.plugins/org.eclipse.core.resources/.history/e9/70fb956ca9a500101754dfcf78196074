@@ -1,0 +1,7 @@
+package com.jone.di_to_go.loosecoupling.di.v3finalfantasy;
+
+public class MainV3 {
+public static void main(String[] args) {
+
+}
+}

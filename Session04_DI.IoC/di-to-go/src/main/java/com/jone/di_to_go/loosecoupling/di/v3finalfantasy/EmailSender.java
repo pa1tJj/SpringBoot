@@ -1,0 +1,23 @@
+package com.jone.di_to_go.loosecoupling.di.v3finalfantasy;
+
+//LÀM CHUYỆN GIỎI NHẤT: ĐÓ LÀ TÔI GIỎI GỬI MAIL
+//NGUYÊN LÍ SRP - SINGLE REPOSITORY
+//ĐƠN TRÁCH NHIỆM, 1 CLASS CHỈ TẬP TRUNG VÀO 1 CHỦ THỂ: EMAIL
+//NẾU ÔM THÊM SMS, WHATSAPP -> VI PHẠM
+
+//EmailSender gia nhập hội NotiService, vậy phải theo quy tắc hội, quy tắc hội ở đây là những hàm đc khai báo trong interface NotiService
+public class EmailSender implements NotiService {
+	public void sendEmail(String recipient, String message) {
+		// TODO: logic xử lý gửi email
+
+		// thông báo thành công
+		System.out.println("(DI - V3 - OCP): Mail was sent to " + recipient + " succesfully!\n" + message);
+	}
+
+	@Override
+	public void sendNoti(String to, String message) {
+		sendEmail(to, message);
+	}
+
+	
+}

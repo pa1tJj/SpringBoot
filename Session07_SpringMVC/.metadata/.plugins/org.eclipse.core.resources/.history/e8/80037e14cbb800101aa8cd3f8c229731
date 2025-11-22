@@ -1,0 +1,12 @@
+package com.jone.javweb.model.dto;
+
+import lombok.Data;
+
+@Data
+public class MovieSearch {
+
+	private String name;
+	private Long genreId;
+	private int page = 1;
+	private Integer maxPageItem = 10;
+}

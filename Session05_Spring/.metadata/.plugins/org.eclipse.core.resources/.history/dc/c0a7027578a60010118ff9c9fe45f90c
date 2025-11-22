@@ -1,0 +1,10 @@
+package com.jone.spring.spring_to_go.ioc.v2bean;
+
+public class ExcelGenerator implements DocumentGenerator{
+
+	@Override
+	public DocumentGenerator getGenerator() {
+		return new PdfGenerator();
+	}
+
+}

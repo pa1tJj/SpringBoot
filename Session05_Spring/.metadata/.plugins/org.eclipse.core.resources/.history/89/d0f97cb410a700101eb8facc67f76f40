@@ -1,0 +1,11 @@
+package com.jone.spring.spring_to_go.ioc.v3di_constructor;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+@Configuration
+@Component("com.jone.spring.spring_to_go.ioc.v3di_constructor")
+public class AppConfig {
+
+	
+}

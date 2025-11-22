@@ -1,0 +1,47 @@
+package com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional;
+
+import java.util.List;
+
+import com.jone.superapp.student_manager_otm_mto_mtm.infra.JpaUtil;
+
+import jakarta.persistence.EntityManager;
+
+public class MainOneMany {
+	public static void main(String[] args) {
+		createMajorStudents();
+		//getAll();
+	}
+	
+	public static void createMajorStudents() {
+		Major se = new Major("SE", "Software Engineering | Kỹ thuật phần mềm");
+		Major gd = new Major("GD", "Graphics Design | Kỹ thuật số");
+		Student an = new Student("SE1000", "An Đỗ", 2004, 8.9);
+		Student binh = new Student("SE1001", "Bình Mai", 2006, 8.1);
+		Student cuong = new Student("GD1002", "Cường Võ", 2004, 8.5);
+		Student dung = new Student("GD1003", "Dung Trần", 2007, 8.2);
+		se.addStudent(an);
+		se.addStudent(binh);
+		gd.addStudent(cuong);
+		gd.addStudent(dung);
+		
+		EntityManager entityManager = JpaUtil.getEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.persist(se);// chơi đổ domino vì nhìn được 2 chiều
+		entityManager.persist(gd);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
+	
+	// VÌ OOP 2 CHIỀU, NÊN KHI LẤY ĐƯỢC 1 MAJOR SE, KO CẦN WHERE GÌ NỮA, VÀO THẲNG LIST CỦA SE LÀ LẤY FULL STUDENT CỦA SE, TA LẤY QUA OBJECT MAJOR MÀ LẠI CÓ LIST
+	// STUDENT, VÌ MAJOR CÓ NHIỀU SINH VIÊN - THAY VÌ CHƠI TRỰC TIẾP VỚI STUDENT
+    public static void getAll() {
+    	EntityManager entityManager = JpaUtil.getEntityManager();
+    	Major se = entityManager.find(Major.class, "SE");
+    	System.out.print("SE major infor" + se);
+    	List<Student> students = se.getStudents();
+    	students.forEach((Student st) ->{
+    		System.out.println(st);
+    	});
+    }
+}

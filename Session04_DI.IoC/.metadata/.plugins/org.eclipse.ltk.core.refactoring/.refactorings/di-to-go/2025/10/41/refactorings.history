@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.jone.di_to_go.tightcoupling.MainTightCôupling&apos; to &apos;MainTightCoupling&apos;&#x0D;&#x0A;- Original project: &apos;di-to-go&apos;&#x0D;&#x0A;- Original element: &apos;com.jone.di_to_go.tightcoupling.MainTightCôupling&apos;&#x0D;&#x0A;- Renamed element: &apos;com.jone.di_to_go.tightcoupling.MainTightCoupling&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MainTightCôupling&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.jone.di_to_go.tightcoupling{MainTightCôupling.java[MainTightCôupling" matchStrategy="1" name="MainTightCoupling" qualified="false" references="true" similarDeclarations="false" stamp="1759978051016" textual="false" version="1.0"/>
+</session>

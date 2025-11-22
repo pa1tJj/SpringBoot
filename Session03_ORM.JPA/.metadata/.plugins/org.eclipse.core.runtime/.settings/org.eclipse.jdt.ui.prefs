@@ -1,0 +1,22 @@
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaPostfixProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.javaChainProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.jone.superapp.entity.Student"><rhs name\="com.jone.superapp.entity.Student"/></lhs><lhs name\="java.lang.Enum"><rhs name\="jakarta.persistence.GenerationType"/><rhs name\="jakarta.persistence.CascadeType"/><rhs name\="jakarta.persistence.FetchType"/></lhs><lhs name\="java.lang.constant.Constable"><rhs name\="jakarta.persistence.GenerationType"/><rhs name\="jakarta.persistence.CascadeType"/><rhs name\="jakarta.persistence.FetchType"/></lhs><lhs name\="com.jone.superapp.entity.Lecturer"><rhs name\="com.jone.superapp.entity.Lecturer"/></lhs><lhs name\="com.jone.superapp.fap_student_layered.service.StudentService"><rhs name\="com.jone.superapp.fap_student_layered.service.StudentService"/></lhs><lhs name\="com.jone.superapp.fap_student_layered.entity.Student"><rhs name\="com.jone.superapp.fap_student_layered.entity.Student"/></lhs><lhs name\="com.jone.superapp.fap_student_layered.repository.StudentRepository"><rhs name\="com.jone.superapp.fap_student_layered.repository.StudentRepository"/></lhs><lhs name\="org.springframework.security.crypto.password.PasswordEncoder"><rhs name\="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/></lhs><lhs name\="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"><rhs name\="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/></lhs><lhs name\="java.util.SequencedCollection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.unione.Major"><rhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.unione.Major"/></lhs><lhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.unimany.Major"><rhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.unimany.Major"/></lhs><lhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.unimany.Student"><rhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.unimany.Student"/></lhs><lhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional.Major"><rhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional.Major"/></lhs><lhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional.Student"><rhs name\="com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional.Student"/></lhs></history>
+content_assist_number_of_computers=21
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=1
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=23
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="java" deleted\="false" description\="main method" enabled\="true" name\="psvm">public static void main(String[] args) {&\#13;\r\n&\#13;\r\n}</template></templates>
+spelling_ignore_ampersand_in_properties=true
+spelling_ignore_digits=true
+spelling_ignore_java_strings=true
+spelling_ignore_mixed=true
+spelling_ignore_non_letters=true
+spelling_ignore_sentence=true
+spelling_ignore_single_letters=true
+spelling_ignore_upper=true
+spelling_ignore_urls=true
+spelling_locale_initialized=true
+spelling_user_dictionary_encoding=
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

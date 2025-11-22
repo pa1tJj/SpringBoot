@@ -1,0 +1,12 @@
+package com.jone.di_to_go.loosecoupling.di.v3finalfantasy;
+
+public interface NotiService {
+	//INTERFACE LÀ MỘT CLASS CHA KHÔNG CÓ CODE TRONG CÁC HÀM (ABSTRACT METHOD)
+	//VỀ LÍ THUYẾT, KO CÓ CODE THÌ KO NEW ĐC OBJECT VÌ NEW XONG, CHẤM GỌI HÀM, HÀM KHÔNG CÓ CODE LẤY GÌ CHẠY
+	//VỀ THỰC TẾ, INTERFACE ĐC VÍ NHƯ MỘT CÂU LẠC BỘ ĐƯA RA YÊU CẦU ANH EM MEMBER PHẢI TUÂN THỦ
+	// ANH EM TUÂN THỦ, LÀM THEO CÁCH CỦA MỖI NGƯỜI, GỌI LÀ IMPLEMENT- THI TRIỂN, TRIỂN KHAI 
+	// NÓ SẼ MÓC SANG NGUYÊN LÍ: TÍNH ĐA HÌNH - POLYMORPHISM, TỪ 1 RA NHIỀU
+	
+	public void sendNoti();
+
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>trang chủ</title>
+</head>
+<body>
+	<h1 th:text="'ROLE:' + ${role}"></h1>
+	<div>
+		<form th:action="@{/products}">
+			<input type="text" name="keyword"
+				placeholder="nhập tên sản phẩm cần tìm kiếm..." id="keyword">
+			<button>tìm kiếm</button>
+		</form>
+	</div>
+	<div>
+	    <h3 style="color: red" th:text="${result}"></h3>
+	</div>
+	<div th:if="${role == 1}">
+		<a th:href="@{/product/create}">Create</a> | <a
+			th:href="@{/product/edit}">Edit</a>
+	</div>
+	<p>
+		<a th:href="@{/logout}">Sign out</a>
+	</p>
+</body>
+</html>

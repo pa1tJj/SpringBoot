@@ -1,0 +1,20 @@
+package com.jone.spring.spring_to_go.ioc.v4di_setter;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ContractService {
+
+	private PdfGenerator pdfGenerator; //KO NEW CHỜ TIÊM/CHÍCH VÀO
+	
+	//HÀM set()
+	public void setPdfGenerator(PdfGenerator pdfGenerator) {
+		this.pdfGenerator = pdfGenerator;
+	}
+	
+	public void processContract() {
+		//TODO: logic xử lí contract
+		
+		pdfGenerator.generateFile("masterm1nd");//có nguy cơ bị null do chưa set() mà đi qua constructor
+	}
+}

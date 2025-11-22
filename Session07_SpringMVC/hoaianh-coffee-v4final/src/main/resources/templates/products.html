@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www/thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiển thị sản phẩm</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+}
+
+table, tr, td {
+	border: 1px solid;
+}
+
+.product {
+	border: 1px solid #ccc;
+	padding: 10px;
+	width: 200px;
+	text-align: center;
+	display: inline-block;
+	margin: 10px;
+}
+
+div {
+	width: 1000px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+img {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+}
+</style>
+</head>
+<body>
+	<h2>Danh sách sản phẩm</h2>
+	<table>
+		<tr>
+			<th>ảnh sản phẩm</th>
+			<th>tên</th>
+			<th>giá</th>
+			<th>số lượng</th>
+			<th>lọai sản phẩm</th>
+			<th>action</th>
+		</tr>
+
+		<tr th:each="item : ${products}">
+			<td><img src="/images/anh4.jpg"
+				th:alt="'Sản phẩm ' + ${item.id}"></td>
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.price}"></td>
+			<td th:text="${item.quantity}"></td>
+			<td th:text="${item.category.name}"></td>
+			<td th:if="${role == 'admin' || role == 'manager'}"><a th:href="@{/product-edit-} + ${item.id}">update</a> | <a
+				th:href="@{/product/delete/} + ${item.id}">delete</a>
+			</td>
+		</tr>
+
+	</table>
+
+    <h1 th:if="${role == 'admin' || role == 'manager'}"> <a th:href="@{/product-edit}">tạo sản phẩm mới</a></h1>
+    <h1 > <a th:href="@{/logout}">LogOut</a></h1>
+
+</body>
+</html>

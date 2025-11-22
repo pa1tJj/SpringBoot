@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin - Quản lý phim | My Rule</title>
+<style>
+/* Sakura / Nhật Bản: palette nhẹ nhàng */
+:root {
+	--bg-grad: linear-gradient(135deg, #fff6fb 0%, #fff0f6 50%, #fff7fb 100%);
+	--pink-1: #ffd6e6;
+	--pink-2: #f7a1c4;
+	--accent: #d84d8b;
+	--muted: #7a4a5a;
+	--card: #ffffff;
+	--glass: rgba(255, 255, 255, 0.7);
+}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Poppins', 'Segoe UI', sans-serif
+}
+
+body {
+	margin: 0;
+	padding: 28px;
+	background: var(--bg-grad);
+	color: var(--muted);
+	min-height: 100vh;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 20px
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 12px
+}
+
+.logo {
+	width: 56px;
+	height: 56px;
+	border-radius: 12px;
+	background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	color: white;
+	box-shadow: 0 6px 18px rgba(216, 77, 139, 0.12)
+}
+
+h1 {
+	margin: 0;
+	color: var(--accent);
+	font-size: 20px
+}
+
+header p {
+	margin: 0;
+	color: #8c6270
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+	gap: 12px
+}
+
+.btn {
+	background: linear-gradient(90deg, var(--pink-1), var(--pink-2));
+	padding: 10px 14px;
+	border-radius: 12px;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	font-weight: 600;
+	box-shadow: 0 6px 18px rgba(216, 77, 139, 0.12)
+}
+
+.btn.ghost {
+	background: transparent;
+	color: var(--accent);
+	border: 2px solid rgba(216, 77, 139, 0.12)
+}
+
+.search-wrap {
+	display: flex;
+	gap: 8px;
+	align-items: center
+}
+
+.search-wrap input {
+	padding: 10px 12px;
+	border-radius: 12px;
+	border: 1px solid #f5d1dc;
+	background: var(--glass);
+	min-width: 220px
+}
+
+/* Card */
+.card {
+	background: var(--card);
+	border-radius: 18px;
+	padding: 18px;
+	box-shadow: 0 8px 30px rgba(216, 77, 139, 0.06)
+}
+
+/* Table */
+.table-wrap {
+	margin-top: 18px
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px
+}
+
+th, td {
+	padding: 12px 10px;
+	text-align: left;
+	border-bottom: 1px solid #fde9f2
+}
+
+th {
+	color: var(--accent);
+	font-weight: 700
+}
+
+td img {
+	width: 84px;
+	height: 56px;
+	object-fit: cover;
+	border-radius: 8px;
+	border: 1px solid #ffe6ee
+}
+
+.actions {
+	display: flex;
+	gap: 8px
+}
+
+.small-btn {
+	padding: 8px 10px;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	font-weight: 600
+}
+
+.edit {
+	background: #fff3f7;
+	color: var(--accent);
+	border: 1px solid rgba(216, 77, 139, 0.08)
+}
+
+.del {
+	background: #fff0f0;
+	color: #b94b5c;
+	border: 1px solid rgba(185, 75, 92, 0.08)
+}
+
+/* Responsive */
+@media ( max-width :900px) {
+	.search-wrap input {
+		min-width: 140px
+	}
+	th:nth-child(3), td:nth-child(3) {
+		display: none
+	} /* ẩn thời lượng khi nhỏ */
+}
+
+/* Login badge */
+.login-badge {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 12px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid rgba(216, 77, 139, 0.06)
+}
+
+.topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px
+}
+
+.meta {
+	color: #a06b7a;
+	font-size: 13px
+}
+
+/* Empty state */
+.empty {
+	padding: 26px;
+	text-align: center;
+	color: #9a6a7a
+}
+</style>
+</head>
+<body>
+	<header>
+		<div class="brand">
+			<div class="logo">MR</div>
+			<div>
+				<h1>My Rule — Admin</h1>
+				<p>Giao diện quản lý phim — tông màu hoa anh đào</p>
+			</div>
+		</div>
+
+		<div class="controls">
+			<!-- Search + filter -->
+			<div class="search-wrap card">
+				<form  method="get" th:objeac="${search}"
+					style="display: flex; gap: 8px; align-items: center">
+					<input type="text" name="name" placeholder="Tìm tên phim..."
+						> <select name="genre"
+						style="padding: 10px; border-radius: 10px; border: 1px solid #f5d1dc; background: var(--glass)">
+						<option value="">Tất cả thể loại</option>
+						<option 
+							>Tình cảm</option>
+					</select>
+					<button class="btn" type="submit">Tìm</button>
+				</form>
+			</div>
+
+			<!-- Add new + Login -->
+			<div style="display: flex; gap: 8px; align-items: center" th:object="${auth}">
+				<p th:if="*{ role == 'manager'}"><a class="btn" th:href="@{/phang/movie-edit}">＋ Thêm mới</a> </p>
+				<p th:if="*{fullname == null}"><a class="btn ghost">🔐 Đăng nhập</a></p>
+				<p th:if="*{fullname != null}"><a class="btn ghost" th:href="@{/phang-admin/logout}">🔐 Đăng xuất</a></p>
+				<input type="hidden" th:text="${role}">
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="card table-wrap">
+			<div class="topbar" style="margin-bottom: 8px">
+				<div class="meta">Danh sách phim</div>
+				<div class="login-badge">
+					Xin chào, <strong th:if="${auth != null}" th:text="${auth.fullname}"></strong>
+				</div>
+			</div>
+
+			<div style="overflow: auto">
+				<table>
+					<thead>
+						<tr>
+							<th style="width: 60px">STT</th>
+							<th>Tên phim</th>
+							<th>Thời lượng</th>
+							<th>Thể loại</th>
+							<th>Số tập</th>
+							<th>Ảnh</th>
+							<th style="width: 150px">Hành động</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr th:each="item : ${movies.getList()}">
+							<td th:text="${item.id}">1</td>
+							<td th:text="${item.name}">Tên phim</td>
+							<td th:text="${item.duration}">120 phút</td>
+							<td th:text="${item.genre.name}">Tình cảm</td>
+							<td th:text="${item.episodes}">12</td>
+							<td><img th:src="@{'/images/' + ${item.image}}"
+								alt="ảnh phim"></td>
+							<td>
+								<div class="actions">
+									<a class="small-btn edit" th:href="@{'/phang/movie-edit-' + ${item.id}}">Sửa</a>
+									<a class="small-btn edit">Xóa</a>
+								</div>
+							</td>
+						</tr>
+						<tr th:if="${#lists.isEmpty(movies)}">
+							<td colspan="7" class="empty">Chưa có phim nào. Bấm "Thêm
+								mới" để tạo.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- Pagination (ví dụ) -->
+			<form th:action="@{/phang/doing}" method="get" class="pagination">
+				<button class="page-btn nav-btn">&laquo; Trước</button>
+				<div class="page-numbers">
+					<span th:each="num : ${#numbers.sequence(1, movies.getTotal())}">
+						<button type="submit" name="page" th:text="${num}"
+							th:value="${num}" class="page-btn num-btn"></button>
+					</span>
+				</div>
+				<button class="page-btn nav-btn">Sau &raquo;</button>
+			</form>
+
+		</section>
+	</main>
+
+</body>
+</html>

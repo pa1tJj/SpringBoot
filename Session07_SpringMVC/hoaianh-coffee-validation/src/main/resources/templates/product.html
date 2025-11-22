@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://ww.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>product with validation</title>
+</head>
+<body>
+	<form th:object="${productEdit}" th:action="@{/save-product}" method="POST">
+		<div>
+			mã sản phẩm<input type="text" th:field="*{id}">
+		</div>
+		<div>
+			tên sản phẩm<input type="text" th:field="*{name}">
+		</div>
+		<div>
+			giá:<input type="text" th:field="*{price}">
+		</div>
+		<div>
+			số lượng:<input type="text" th:field="*{quantity}">
+		</div>
+		<button type="submit">save</button>
+	</form>
+	<span th:object="${errorMessage}" th:text="$errorMessage"></span>
+</body>
+</html>

@@ -1,0 +1,13 @@
+package com.jone.di_to_go.loosecoupling.di.v3finalfantasy;
+
+public class WhatsAppSender implements NotiService {
+
+	@Override
+	public void sendNoti(String to, String message) {
+		// TODO: logic xử lý gửi email
+
+		// thông báo thành công
+		System.out.println("(DI - V3 - OCP): Mail was sent to " + recipient + " succesfully!\n" + message);
+	}
+
+}

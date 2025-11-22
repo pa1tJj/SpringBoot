@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Ảnh</title>
+</head>
+<body>
+  <h2>Form Upload Ảnh</h2>
+  
+  <form th:action="@{/save}" method="post" enctype="multipart/form-data" th:object="${pic}">
+    <label for="name">tên ảnh:</label>
+    <input type="text" th:field="*{name}" required>
+    <label for="image">Chọn ảnh:</label>
+    <input type="file" th:field="*{file}" onchange="preview.src=window.URL.createObjectURL(this.files[0])">
+    <img id="preview" width="200">
+    <br><br>
+    <input type="submit" value="Tải lên">
+  </form>
+</body>
+</html>

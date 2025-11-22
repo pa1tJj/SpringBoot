@@ -1,0 +1,31 @@
+package com.jone.superapp.student_manager_otm_mto_mtm.entity.bidirectional;
+
+import com.jone.superapp.student_manager_otm_mto_mtm.infra.JpaUtil;
+
+import jakarta.persistence.EntityManager;
+
+public class MainOneMany {
+	public static void main(String[] args) {
+		createMajorStudents();
+	}
+	
+	public static void createMajorStudents() {
+		Major se = new Major("SE", "Software Engineering | Kỹ thuật phần mềm");
+		Major gd = new Major("SE", "Graphics Design | Kỹ thuật số");
+		Student an = new Student("SE1000", "An Đỗ", 2004, 8.9);
+		Student binh = new Student("SE1001", "Bình Mai", 2006, 8.1);
+		Student cuong = new Student("SE1002", "Cường Võ", 2004, 8.5);
+		Student dung = new Student("SE1003", "Dung Trần", 2007, 8.2);
+		se.addStudent(an);
+		se.addStudent(binh);
+		gd.addStudent(cuong);
+		gd.addStudent(dung);
+		
+		EntityManager entityManager = JpaUtil.getEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.persist(se);// chơi đổ domino vì nhìn được 2 chiều
+		entityManager.persist(gd);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+}

@@ -1,0 +1,11 @@
+package com.jone.di_to_go.loosecoupling.di.v2setter;
+
+public class MainDIV2 {
+	public static void main(String[] args) {
+		//DEPENDENCY ĐÃ LỘ DIỆN QUA SETTER(), NHÀ MÌNH CẦN BÁC THỢ Ở NƠI KHÁC ĐẾN GIÚP, TIÊM/CHÍCH DEPENDENCY QUA SETTER
+		EmailSender emailSender = new EmailSender();
+		UserService userService = new UserService();//chưa mời bác thợ , vì không dùng constructor mà đi qua setter()
+		userService.setEmailSender(emailSender);//TIÊM DEPENDENCY VÀO RỒI
+		userService.registerAccount(new Account());
+	}
+}

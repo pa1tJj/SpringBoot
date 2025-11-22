@@ -1,0 +1,5 @@
+package com.jone.mvnp.mvnp_master_data.entity;
+
+public class Subject {
+
+}

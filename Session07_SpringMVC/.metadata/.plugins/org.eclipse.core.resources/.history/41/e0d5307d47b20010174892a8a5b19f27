@@ -1,0 +1,31 @@
+package com.jone.javweb.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.jone.javweb.model.entity.Auth;
+import com.jone.javweb.service.AuthService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequestMapping("/phang-admin")
+@RequiredArgsConstructor
+public class AuthController {
+	
+	private final AuthService authService;
+
+	@GetMapping("/login")
+	public String getLogin() {
+		return "login";
+	}
+	
+	@PostMapping("/do-login")
+	public String doLogin(@ModelAttribute Auth auth) {
+		Auth result = 
+		return null;
+	}
+}

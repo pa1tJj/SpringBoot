@@ -1,0 +1,22 @@
+package com.jone.superapp.student_manager_otm_mto_mtm.entity.unimany;
+
+import com.jone.superapp.student_manager_otm_mto_mtm.infra.JpaUtil;
+
+import jakarta.persistence.EntityManager;
+
+public class MainUniMany {
+	public static void main(String[] args) {
+		Major major = new Major("SE", "SOFTWARE ENGINEERING");
+		Student s1 = new Student("SE100", "An Nguyễn", 2005, 8.6);
+		Student s2 = new Student("SE101", "Bình Lê", 2006, 8.2);
+		s1.setMajor(major);
+		s2.setMajor(major);
+		EntityManager entityManager = JpaUtil.getEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.persist(major);
+		entityManager.persist(s1);
+		entityManager.persist(s2);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.noioc.PdfGenerator"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.noioc.ConstractService"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v1scan.AppConfig"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v1scan.PdfGenerator"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v2bean.AppConfig"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v2bean.ExcelGenerator"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v2bean.PdfGenerator"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v2bean.DocumentGenerator"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Primary"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
+    <fullyQualifiedTypeName name="java.lang.Appendable"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v3di_constructor.AppConfig"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v3di_constructor.PdfGenerator"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v3di_constructor.ConstractService"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v4di_setter.AppConfig"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v4di_setter.PdfGenerator"/>
+    <fullyQualifiedTypeName name="com.jone.spring.spring_to_go.ioc.v4di_setter.ContractService"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+</qualifiedTypeNameHistroy>

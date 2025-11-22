@@ -1,0 +1,93 @@
+package com.jone.javweb.service;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.jone.javweb.converter.Converter;
+import com.jone.javweb.model.dto.MovieDTO;
+import com.jone.javweb.model.entity.Movie;
+import com.jone.javweb.model.response.MovieResponse;
+import com.jone.javweb.repository.MovieRepository;
+
+@Service
+public class MovieService {
+
+	private final MovieRepository movieRepository;
+	private final Converter movieConverter;
+
+	public MovieService(MovieRepository movieRepository, Converter movieConverter) {
+		this.movieConverter = movieConverter;
+		this.movieRepository = movieRepository;
+	}
+
+	public void save(Movie movie) {
+		movieRepository.save(movie);
+	}
+
+	public List<MovieResponse> searchMovies(String name, Long genreId, Pageable pageable) {
+		List<MovieResponse> result = new ArrayList<>();
+		Page<Movie> movies = movieRepository.findAll();
+		if (name != null) {
+			movies = movieRepository.findByNameContaining(name);
+			result = getResult(movies);
+		} else if (genreId != null) {
+			movies = movieRepository.findByGenreId(genreId);
+			result = getResult(movies);
+		}
+		if (name != null && genreId != null) {
+			movies = movieRepository.findByNameContainingAndGenreId(name, genreId);
+			result = getResult(movies);
+		}
+		if(name == null && genreId == null) {
+			result = getResult(movies);
+		}
+
+		return result;
+	}
+
+	public List<MovieResponse> getResult(List<Movie> movies) {
+		List<MovieResponse> result = new ArrayList<>();
+		for (Movie item : movies) {
+			MovieResponse response = movieConverter.toMovieResponse(item);
+			result.add(response);
+		}
+		return result;
+	}
+	
+	public MovieResponse getDetail(Long id) {
+		Movie movie = movieRepository.findById(id).get();
+		return movieConverter.toMovieResponse(movie);
+	}
+	
+	public void save(MovieDTO movieDTO) {
+		Movie movie = movieConverter.toMovieEntity(movieDTO);
+		movie.setImage(saveImage(movieDTO.getImage()));
+		movieRepository.save(movie);
+	}
+	
+	private static final Path path = Paths.get("images");
+	public String saveImage(MultipartFile multipartFile) {
+		try {
+			if(!Files.exists(path)) {
+				Files.createDirectories(path);
+			}
+		    Path target = path.resolve(multipartFile.getOriginalFilename());
+		    multipartFile.transferTo(target);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return multipartFile.getOriginalFilename();
+	}
+	
+	public int getTotalItem() {
+		return (int) movieRepository.count() / 10;
+	}
+}

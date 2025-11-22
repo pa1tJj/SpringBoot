@@ -1,0 +1,4 @@
+package com.jone.spring.spring_to_go.ioc.v2bean;
+
+public interface DocumentGenerator {
+}

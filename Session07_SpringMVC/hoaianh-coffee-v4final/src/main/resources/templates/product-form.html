@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://ww.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Product Form</title>
+</head>
+<body>
+
+	<h3 th:if="${productEdit.id} == null">Create Product</h3>
+	<h3 th:if="${productEdit.id} != null">Update Product</h3>
+	<form th:object="${productEdit}" th:action="@{/save-product}"
+		method="POST">
+		<input type="hidden" name="id" th:field="*{id}">
+		<div>
+			tên sản phẩm<input type="text" name="name" id="name"
+				th:field="*{name}"> <span th:errors="*{name}"
+				style="color: red"></span>
+		</div>
+		<div>
+			giá:<input type="text" name="price" th:field="*{price}"> <span
+				th:errors="*{price}" style="color: red"></span>
+		</div>
+		<div>
+			số lượng:<input type="text" name="quantity" th:field="*{quantity}">
+			<span th:errors="*{quantity}" style="color: red"></span>
+		</div>
+		<div>
+			loại sản phẩm: <select name="category">
+				<option th:each="item : ${categories}" th:value="${item.id}"
+					th:text="${item.name}"
+					th:selected="${productEdit.category != null && productEdit.category.id == item.id}"></option>
+			</select>
+		</div>
+		<button type="submit" th:if="${productEdit.id} == null">create</button>
+		<button type="submit" th:if="${productEdit.id} != null">save</button>
+	</form>
+</body>
+</html>

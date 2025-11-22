@@ -1,0 +1,5 @@
+# Created at 2025-10-04T16:40:11.559
+Boot Manifest-JAR contains absolute paths in classpath 'D:\BackendJava\My_Workspace\Space_Deep\Session01_Maven\heathy-bmi\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
